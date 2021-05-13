@@ -1,0 +1,25 @@
+server:
+  port: 1900
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#      routes:
+#        # This route rule used to forward request to activity server
+#        - id: file_manager
+#          uri: http://localhost:1992
+#          predicates:
+#            - Path=/fileManager/**
+
+eureka:
+  instance:
+    hostname: gateway
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:1217@127.0.0.1:1990/eureka/
